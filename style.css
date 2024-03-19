@@ -1601,6 +1601,163 @@ a.read_more:hover {
   margin-bottom: 5px;
 }
 
+/* //////////// CONTACT PAGE ////////////*/
+input,textarea,p {
+  outline: 0;
+}
+
+
+
+.contact-header-container {
+  /* position: relative; */
+  width: 100%;
+}
+
+.contact-header {
+  content: '';
+  width: 100%;
+  height: 100%;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: 'HGGothicM';
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2em;
+  background: url("img/documents-with-charts-touchpad-desk.jpg");
+  background-repeat: no-repeat;
+  background-position: center 20%;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  /* transform: translate(0%, 0px);
+  animation: servicemove 2s ease; */
+}
+
+.contact-header span {
+  /* letter-spacing: 5px; */
+  color: #444;
+}
+
+.contact-header .subtitle {
+  font-family: 'HGGothicM';
+  font-weight: 400;
+  font-size: 16px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.contact-form {
+  background-color: #fff;
+  width: 600px;
+  /* height:100%; */
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,.2);
+}
+/* .contact-form h1 {
+  margin: 0;
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+  color: #444;
+  font-weight: 600;
+} */
+
+.contact-form select[name="contact-type"],.contact-form select[name="contact-type"]:focus {
+  display: block;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #dfe0e0;
+  width: 100%;
+  color: #858688;
+}
+
+.fields label[for="formtype"] {
+  font-size: 14px;
+  color: #444;
+} 
+
+.contact-form-title {
+  font-family: 'HGGothicM';
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  padding: 30px;
+}
+
+.contact-form .fields {
+  position: relative;
+  padding: 15px;
+}
+.contact-form input[type="text"], .contact-form input[type="email"],
+.contact-form input[type="phone"], .contact-form textarea[name="company"]  {
+  display: block;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #dfe0e0;
+  width: 100%;
+}
+.contact-form input[type="text"]:focus, .contact-form input[type="email"]:focus {
+  border: 1px solid #c6c7c7;
+}
+.contact-form input[type="text"]::placeholder, 
+.contact-form input[type="email"]::placeholder, 
+.contact-form input[type="phone"]::placeholder,
+.contact-form textarea::placeholder {
+  color: #858688;
+}
+
+.contact-form textarea[name="msg"] {
+  resize: none;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #dfe0e0;
+  width: 100%;
+  height: 150px;
+}
+.contact-form textarea:focus {
+  border: 1px solid #c6c7c7;
+}
+.contact-form input[type="submit"] {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 0;
+  background-color: #444;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+}
+.contact-form input[type="submit"]:hover {
+  background-color: #cf1516;
+}
+.contact-form input[name="email"] {
+  position: relative;
+  display: block;
+}
+.contact-form label {
+  position: relative;
+
+}
+.contact-form label i {
+  position: absolute;
+  color: #dfe2e5;
+  top: 31px;
+  left: 15px;
+  z-index: 10;
+}
+.contact-form label i ~ input {
+  padding-left: 45px !important;
+}
+.contact-form .responses {
+  padding: 15px;
+  margin: 0;
+}
+
+
+/*//////////// NEWS PAGE ////////////*/
 
 
 
@@ -2288,3 +2445,58 @@ a.read_more:hover {
   }
 
 }
+
+
+/* CONTACT FORM */
+@media only screen and (max-width: 767px) {
+  .contact-header-container {
+    width: 100%;
+    height: 350px;
+  }
+
+  .contact-header  {
+    content: '';
+    width: 100%;
+    height: 100%;
+    font-family: 'HGGothicM';
+    font-size: 35px;
+    font-weight: 500;
+    color: #444;
+    text-align: center;
+    margin-bottom: 0;
+    background: url("img/documents-with-charts-touchpad-desk.jpg");
+    background-size: cover;
+    /* padding-top: 50px;
+    padding-bottom: 50px; */
+  }
+
+  .contact-form-title {
+    font-family: 'HGGothicM';
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    padding: 0;
+    margin-top: 25px;
+  }
+  .contact-header .subtitle {
+    font-family: 'HGGothicM';
+    font-weight: 400;
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+  }
+
+  .contact-form {
+    background-color: #fff;
+    width: 100%;
+    margin-top: 2em;
+    /* height:100%; */
+    box-shadow: 0px 0px 0px 0px;
+  }
+
+  .contact-form input[type="submit"] {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
