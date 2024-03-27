@@ -59,20 +59,20 @@ function reveal() {
 
 //ページのスクロールに合わせて画像が表示される
 
-window.addEventListener("scroll", revealintro);
+// window.addEventListener("scroll", revealintro);
 
-function revealintro() {
-  var reveals = document.querySelectorAll(".reveal-intro");
-  var i;
+// function revealintro() {
+//   var reveals = document.querySelectorAll(".reveal-intro");
+//   var i;
 
-  for (i = 0; i < reveals.length; i++) {
-    if (reveals[i].getBoundingClientRect().top < window.innerHeight) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
-    }
-  }
-}
+//   for (i = 0; i < reveals.length; i++) {
+//     if (reveals[i].getBoundingClientRect().top < window.innerHeight) {
+//       reveals[i].classList.add("active");
+//     } else {
+//       reveals[i].classList.remove("active");
+//     }
+//   }
+// }
 
 ////////////////////////////////////////////
 
@@ -80,40 +80,54 @@ function revealintro() {
 
 // ①ページ内リンクの際にスムーズスクロールになる
 //→その際にページのheaderタグの高さを自動で算出しスクロール位置を調整
-const smoothScroll = document.querySelectorAll('a[href^="#"]');
-for (let i = 0; i < smoothScroll.length; i++) {
-  smoothScroll[i].addEventListener("click", (e) => {
-    e.preventDefault();
-    let href = smoothScroll[i].getAttribute("href");
-    let targetElement = document.getElementById(href.replace("#", ""));
+// const smoothScroll = document.querySelectorAll('a[href^="#"]');
+// for (let i = 0; i < smoothScroll.length; i++) {
+//   smoothScroll[i].addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let href = smoothScroll[i].getAttribute("href");
+//     let targetElement = document.getElementById(href.replace("#", ""));
 
-    const rect = targetElement.getBoundingClientRect().top;
-    const offset = window.pageYOffset;
-    const gap = 50;
-    const target = rect + offset - gap;
+//     const rect = targetElement.getBoundingClientRect().top;
+//     const offset = window.pageYOffset;
+//     const gap = 50;
+//     const target = rect + offset - gap;
 
-    window.scrollTo({
-      top: target,
-      behavior: "smooth",
-    });
-  });
+//     window.scrollTo({
+//       top: target,
+//       behavior: "smooth",
+//     });
+//   });
+// }
+
+// let itemHeight = 0;
+// smoothScroll.addEventListener("click", () => {
+//   itemHeight = btn.getBoundingClientRect.top + window.pageYOffset;
+//   scroll();
+// });
+
+// function scroll() {
+//   itemHeight = itemHeight - 50;
+//   scrollTo(0, itemHeight);
+
+//   if (itemHeight < 0) {
+//     return;
+//   } else {
+//     setTimeout(scroll, 30);
+//   }
+// }
+
+
+////// NAVBAR DISAPPEARING AND APPEARING //////////
+
+if (window.innerWidth < 960) {
+  var prevScrollpos = window.scrollY;
+  window.onscroll = function() {
+    var currentScrollPos = window.scrollY;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
 }
-
-let itemHeight = 0;
-smoothScroll.addEventListener("click", () => {
-  itemHeight = btn.getBoundingClientRect.top + window.pageYOffset;
-  scroll();
-});
-
-function scroll() {
-  itemHeight = itemHeight - 50;
-  scrollTo(0, itemHeight);
-
-  if (itemHeight < 0) {
-    return;
-  } else {
-    setTimeout(scroll, 30);
-  }
-}
-
-////// SLIDESHOW //////////
