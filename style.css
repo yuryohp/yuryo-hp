@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
+@font-face {
+  font-family: 'HGGothicM';
+  src: url('HGRGM_0.TTC');
+}
+
 * {
   padding: 0;
   margin: 0;
