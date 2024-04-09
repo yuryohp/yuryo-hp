@@ -1672,6 +1672,11 @@ a.read_more:hover {
     z-index: 99999;
     position: fixed;
   }
+  
+  nav a::before {
+    content: none;
+  }
+  
 
   .nav-menu {
     position: fixed;
