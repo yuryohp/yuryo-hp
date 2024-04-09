@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
 @font-face {
-  font-family: 'HGGothicM';
+  font-family: 'HGGothicM' !important;
   src: url('HGRGM_0.TTC');
+  src: url('HGRGM_0.TTC?#iefix') format('embedded-opentype'),
+    url('HGRGM_0.woff2') format('woff2'),
+    url('HGRGM_0.woff') format('woff'),
+    url('HGRGM_0.ttf') format('truetype'),
+    url('HGRGM_0.svg#besom_2regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
