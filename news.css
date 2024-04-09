@@ -1,0 +1,122 @@
+/*//////////// NEWS PAGE ////////////*/
+.news-header-container {
+    /* position: relative; */
+    width: 100%;
+}
+
+.news-header {
+    content: '';
+    width: 100%;
+    height: 100%;
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-family: 'HGGothicM';
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2em;
+    background: url("img/5.jpg");
+    background-repeat: no-repeat;
+    background-position: center 20%;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    /* transform: translate(0%, 0px);
+    animation: servicemove 2s ease; */
+}
+
+.news-header span {
+    /* letter-spacing: 5px; */
+    color: #444;
+}
+
+.news-header .subtitle {
+    font-family: 'HGGothicM';
+    font-weight: 400;
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+
+.news-page {
+    width: 100%;
+    /* height: 100%; */
+    padding-top: 30px;
+    margin-bottom: 10em;
+    /* background: center / cover no-repeat url("/img/abstract-gradient-wave-wallpaper.jpg"); */
+    /* background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center; */
+}
+
+.news-page-container {
+    max-width: 70%;
+    margin: 0 auto;
+    height: 100%;
+    /* background-color: #eff2f7; */
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .news-page {
+        margin-bottom: 5em;
+    }
+
+    .news-page-container {
+        max-width: 100%;
+    }
+
+    .news-header {
+        content: '';
+        font-family: 'HGGothicM';
+        height: 200px;
+        font-size: 35px;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 0;
+        background-size: cover;
+        background-attachment: local;
+        padding-top: 80px;
+        /* padding-bottom: 50px; */
+    }
+
+    .news-header span {
+        /* letter-spacing: 5px; */
+        color: #fff;
+        -moz-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        -webkit-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        -ms-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+    }
+
+    .news-header .subtitle {
+        font-family: 'HGGothicM';
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+        -moz-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        -webkit-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        -ms-text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.58);
+        margin-top: 10px;
+    }
+
+    .news-page .grid {
+        gap: 0%;
+    }
+
+    .news-page .card_body {
+        padding: 7px;
+        height: 230px;
+    }
+
+    .news-page .card_img img {
+        /* width: 250px; */
+        object-fit: cover;
+    }
+
+}
