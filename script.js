@@ -24,6 +24,8 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+
+
 //hamburger menu
 const hamburger = document.querySelector(".hamburger");
 const nav_menu = document.querySelector(".nav-menu");
