@@ -1999,6 +1999,7 @@ a.read_more:hover {
 
   .intro__p {
     width: 100%;
+    height: auto;
     font-size: 14px;
     text-align: center;
     line-height: 2em;
