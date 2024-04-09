@@ -1969,7 +1969,7 @@ a.read_more:hover {
     font-size: 14px;
     text-align: center;
     line-height: 2em;
-    white-space: wrap;
+    white-space: normal;
     margin-top: 35px;
   }
 
@@ -2085,7 +2085,7 @@ a.read_more:hover {
   }
 
   .card_body p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .card_date {
