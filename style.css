@@ -133,7 +133,7 @@ nav a:hover::before {
   position: absolute;
   left: 5%;
   top: 42%;
-  font-size: 6.4em;
+  font-size: 5em;
   font-weight: 700;
   letter-spacing: .2em;
   color: #444;
@@ -145,7 +145,7 @@ nav a:hover::before {
   position: absolute;
   left: 5%;
   top: 42%;
-  font-size: 6.4em;
+  font-size: 5em;
   font-weight: 700;
   letter-spacing: .2em;
   color: #444;
@@ -167,24 +167,24 @@ nav a:hover::before {
 .banner .catch-copy-line {
   position: absolute;
   top: 0;
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
 
 .banner .catch-copy-line2 {
   position: absolute;
   top: 18%;
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
 
 .banner .catch-copy-bg {
   content: '';
-  width: 80%;
+  width: 960px;
   height: 15%;
   background-color: #eff2f7;
   position: absolute;
-  top: 42%;
+  top: 41%;
   left: 0%;
   transform: translate(0%, 0px);
   animation: catchcopybgmove 2s ease;
@@ -192,11 +192,11 @@ nav a:hover::before {
 
 .banner .catch-copy-bg2 {
   content: '';
-  width: 80%;
+  width: 880px;
   height: 15%;
   background-color: #eff2f7;
   position: absolute;
-  top: 42%;
+  top: 41%;
   left: 0%;
   transform: translate(0%, 0px);
   animation: catchcopybgmove 2s ease;
@@ -834,18 +834,128 @@ button img {
 
 
 .news__container {
-  max-width: 70%;
+  width: 100%;
   margin: 0 auto;
   height: 100%;
   /* background-color: #eff2f7; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px;
 }
 
-.grid {
+/* .news__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3%;
   margin: 5% 0;
+} */
+
+
+.news__wrapper {
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
 }
+
+.news__wrapper i {
+  /* height: 100px;
+  width: 50px; */
+  /* background: #cf1516; */
+  color: #444;
+  text-align: center;
+  /* line-height: 50px;
+  border-radius: 50%; */
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 45px;
+  transform: translateY(-50%);
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); */
+
+}
+
+.news__wrapper i:hover {
+  color: #cf1516;
+  transition: all .3s ease-in-out;
+}
+
+.news__wrapper i:first-child {
+  left: -80px;
+}
+
+.news__wrapper i:last-child {
+  right: -70px;
+}
+
+.news__wrapper .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+  height: 480px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel :where(.card, .card_img) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  height: 450px;
+  list-style: none;
+  /* background: #eff2f7; */
+  border-radius: 8px;
+  cursor: pointer;
+  width: 98%;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #eff2f7;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card .card_img {
+  width: 100%;
+  height: 200px;
+  /* border-radius: 50%; */
+  padding: 10px 10px 0 10px;
+}
+
+.card .card_img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  /* border-radius: 50%; */
+  /* border: 4px solid #fff; */
+}
+
 
 .reveal {
   transition: all 1s ease-in;
@@ -856,9 +966,8 @@ button img {
   opacity: 1;
 }
 
-.card {
+/* .card {
   overflow: hidden;
-  /* padding: 20px; */
   background-color: #FFF;
   border-radius: 5px;
   text-align: center;
@@ -878,10 +987,16 @@ button img {
   padding: 26px 20px 36px 20px;
   text-align: left;
 
+} */
+
+.card_text {
+  text-align: left;
+  margin: 0 35px 0 35px;
 }
 
 .card_title {
   font-size: 15px;
+  margin-top: 20px;
 }
 
 .card_date {
@@ -890,12 +1005,11 @@ button img {
   padding-bottom: 10px;
 }
 
-.card_body p {
+.card p {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
   padding-bottom: 20px;
-
 }
 
 a.read_more {
@@ -914,8 +1028,11 @@ a.read_more:hover {
 
 .news_more {
   display: flex;
+  max-width: 1100px;
+  width: 100%;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  padding-top: 5em;
 }
 
 
@@ -929,6 +1046,7 @@ a.read_more:hover {
   -moz-animation: dude .75s 1 forwards;
   -o-animation: dude .75s 1 forwards;
   animation: dude .75s 1 forwards;
+  margin-right: 15px;
 }
 
 
@@ -1103,12 +1221,13 @@ a.read_more:hover {
 }
 
 .service__container {
-  max-width: 100%;
+  width: 100%;
   /* margin: 0 auto; */
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x:hidden;
 }
 
 .service__grid {
@@ -1299,21 +1418,6 @@ a.read_more:hover {
   margin-top: 10px;
 }
 
-
-/* ////////////// COMPANY INFO //////////////*/
-
-.company-info__wrapper {
-  /* width: 100%; */
-  /* height: 100%; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* justify-content: center; */
-  margin-bottom: 5em;
-  margin-top: 5em;
-
-}
-
 /* .contact__container {
   display: flex;
   flex-direction: column;
@@ -1349,6 +1453,7 @@ a.read_more:hover {
 }
 
 
+
 .contact_more:hover {
   opacity: .7;
   background-color: #cf1516;
@@ -1359,17 +1464,35 @@ a.read_more:hover {
 .contact_more a {
   text-decoration: none;
   color: #fff;
+  font-size: 12px;
 }
 
-/* COMPANY INFO */
 
+/* ////////////// COMPANY INFO //////////////*/
+
+.company-info__wrapper {
+  /* width: 100%; */
+  /* height: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  margin-bottom: 5em;
+  margin-top: 5em;
+}
+
+.company-info__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 .company-info__wrapper__profile {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 100%; */
   /* height: 100%; */
   /* margin-left: 20%; */
-  padding-left: 20%;
+  /* padding-left: 20%; */
 }
 
 .access__title {
@@ -1411,7 +1534,7 @@ a.read_more:hover {
 }
 
 .company-info__wrapper__map {
-  margin: 50px;
+  /* margin: 50px; */
   padding-top: 5em;
 }
 
@@ -1598,7 +1721,7 @@ a.read_more:hover {
   }
 }
 
-@media screen and (max-width: 959px) {
+@media screen and (max-width: 1024px) {
   .bar {
     display: block;
   }
@@ -1707,8 +1830,8 @@ a.read_more:hover {
   }
 }
 
-/* FV */
-@media screen and (max-width: 767px) {
+/* ///////////// FV /////////////*/
+@media screen and (max-width: 600px) {
   .banner-sp {
     position: relative;
     width: 100%;
@@ -1808,18 +1931,305 @@ a.read_more:hover {
     display: none;
   }
 
+  @keyframes mycatchcopyensp {
+    from {
+      bottom: -10px;
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  } 
+
 }
 
-@keyframes mycatchcopyensp {
-  from {
-    bottom: -10px;
-    opacity: 0;
+
+@media screen and (max-width: 600px) {
+  .banner-sp .catch-copy {
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    font-size: 30px;
   }
 
-  to {
-    opacity: 1;
+  .banner-sp .catch-copy2 {
+    position: absolute;
+    left: 5%;
+    top: 40%;
+    font-size: 30px;
   }
+
+  .banner-sp .catch-copy-line {
+    position: absolute;
+    top: 28%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-line2 {
+    position: absolute;
+    top:34%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-bg {
+    width: 320px;
+    height: 53px;
+    top: 33%;
+  }
+
+  .banner-sp .catch-copy-bg2 {
+    content: '';
+    width: 300px;
+    height: 53px;
+    top: 38%;
+    left: 0%;
+  }
+
+  .catchcopy-en-sp {
+    position: absolute;
+    left: 5%;
+    bottom: 38%;
+    opacity: .8;
+    width: 280px;
+  }
+
 }
+
+@media screen and (min-width: 601px) and (max-width: 767px) {
+  .banner-sp {
+    position: relative;
+    width: 100%;
+    height: 900px;
+  }
+
+  .banner-sp .catch-copy {
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    animation: mycatchcopy 1s linear;
+    z-index: 1;
+    padding-bottom: 10px;
+  }
+
+  .banner-sp .catch-copy2 {
+    position: absolute;
+    left: 5%;
+    top: 40%;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    animation: mycatchcopy 1s linear;
+    z-index: 1;
+  }
+
+  .banner-sp .catch-copy-line {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-line2 {
+    position: absolute;
+    top:34%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-bg {
+    content: '';
+    width: 535px;
+    height: 80px;
+    background-color: #eff2f7;
+    position: absolute;
+    top: 33%;
+    left: 0%;
+    transform: translate(0%, 0px);
+    animation: catchcopybgmove 2s ease;
+  }
+
+  .banner-sp .catch-copy-bg2 {
+    content: '';
+    width: 480px;
+    height: 80px;
+    background-color: #eff2f7;
+    position: absolute;
+    top: 38%;
+    left: 0%;
+    transform: translate(0%, 0px);
+    animation: catchcopybgmove 2s ease;
+  }
+
+  .banner-sp img {
+    height: 100%;
+
+  }
+
+  .banner-sp .fv-img-sp {
+    opacity: .6;
+    object-fit: cover;
+    object-position: 80% 100%;
+  }
+
+  .catchcopy-en-sp img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .catchcopy-en-sp {
+    position: absolute;
+    left: 5%;
+    bottom: 38%;
+    opacity: .8;
+    width: 400px;
+    animation: mycatchcopyensp 2s ease forwards;
+  }
+
+  div.arrow {
+    display: none;
+  }
+
+  @keyframes mycatchcopyensp {
+    from {
+      bottom: 30%;
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .banner-sp {
+    position: relative;
+    width: 100%;
+    height: 900px;
+  }
+
+  .banner-sp .catch-copy {
+    position: absolute;
+    left: 5%;
+    top: 35%;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    animation: mycatchcopy 1s linear;
+    z-index: 1;
+    padding-bottom: 10px;
+  }
+
+  .banner-sp .catch-copy2 {
+    position: absolute;
+    left: 5%;
+    top: 40%;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #444;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    animation: mycatchcopy 1s linear;
+    z-index: 1;
+  }
+
+  .banner-sp .catch-copy-line {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-line2 {
+    position: absolute;
+    top:34%;
+    width: 100%;
+    height: 250px;
+  }
+
+  .banner-sp .catch-copy-bg {
+    content: '';
+    width: 535px;
+    height: 80px;
+    background-color: #eff2f7;
+    position: absolute;
+    top: 33%;
+    left: 0%;
+    transform: translate(0%, 0px);
+    animation: catchcopybgmove 2s ease;
+  }
+
+  .banner-sp .catch-copy-bg2 {
+    content: '';
+    width: 480px;
+    height: 80px;
+    background-color: #eff2f7;
+    position: absolute;
+    top: 38%;
+    left: 0%;
+    transform: translate(0%, 0px);
+    animation: catchcopybgmove 2s ease;
+  }
+
+  .banner-sp img {
+    height: 100%;
+
+  }
+
+  .banner-sp .fv-img-sp {
+    opacity: .6;
+    object-fit: cover;
+    object-position: 80% 100%;
+  }
+
+  .catchcopy-en-sp img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .catchcopy-en-sp {
+    position: absolute;
+    left: 5%;
+    bottom: 38%;
+    opacity: .8;
+    width: 400px;
+    animation: mycatchcopyensp 2s ease forwards;
+  }
+
+  div.arrow {
+    display: none;
+  }
+
+  @keyframes mycatchcopyensp {
+    from {
+      bottom: 30%;
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+}
+
+
 
 /* WHO WE ARE */
 
@@ -2014,22 +2424,6 @@ a.read_more:hover {
 
 /* NEWS */
 @media only screen and (max-width: 1441px) and (min-width: 1025px) {
-  .news__container {
-    max-width: 80%;
-  }
-
-  .grid {
-    gap: 2%;
-  }
-
-  .card {
-    padding: 15px;
-  }
-
-  .card_body {
-    padding: 15px;
-  }
-
   .card_title {
     font-size: 22px;
     padding-bottom: 14px;
@@ -2048,48 +2442,112 @@ a.read_more:hover {
 
 }
 
-@media only screen and (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 2%;
+@media screen and (max-width: 900px) {
+  .news__wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+      /* grid-auto-columns: 100%; */
+    /* margin-left: 1.8em; */
   }
-}
 
-@media only screen and (max-width: 767px) {
-  .news {
-    margin-bottom: 5em;
+  .news__wrapper i {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 1rem;
   }
 
   .news__title {
     font-size: 35px;
-    padding-bottom: 10px;
-    margin-bottom: 0;
+    padding-bottom: 0px;
+    margin-bottom: 25px;
+    
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 767px) {
+  .card .card_img img {
+    width: 100%;
+    height: 150px;
   }
 
-  .news__container {
-    max-width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+
+  .news__wrapper {
+    width: 100%;
   }
 
-  .card {
-    padding: 0 10px;
+  .news__wrapper .carousel {
+    grid-auto-columns: 100%;
+    /* margin-left: 1.8em; */
+    gap: 50px;
+    margin-top: 3em;
   }
 
-  .card_body {
-    padding: 7px;
-    height: 280px;
+  .news__wrapper i {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 15px;
   }
 
+  .carousel .card {
+    /* height: auto; */
+    width: 100%;
+  }
+
+  .card .card_img {
+    width: 100%;
+  }
+
+  .card .card_img img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .card_text {
+    margin: 0 15px 0 15px;
+  }
+  
   .card_title {
-    font-size: 14px;
-    padding-bottom: 7px;
-  }
-
-  .card_body p {
-    font-size: 14px;
-  }
-
-  .card_date {
     font-size: 13px;
+    margin-top: 20px;
+  }
+  
+  .card_date {
+    font-size: 12px;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
+  
+  .card p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .news__wrapper i {
+    font-size: 35px;
+  }
+
+  .news__wrapper i:first-child {
+    left: -38px;
+  }
+  
+  .news__wrapper i:last-child {
+    right: -30px;
+  }
+}  
+
+@media only screen and (max-width: 767px) {
+  .news {
+    margin-bottom: 5em;
   }
 
   a.read_more {
@@ -2099,11 +2557,6 @@ a.read_more:hover {
     color: #cf1516;
   }
 
-  .card_img img {
-    width: 100%;
-    object-fit: cover;
-  }
-
   .news_more {
     justify-content: center;
   }
@@ -2111,11 +2564,24 @@ a.read_more:hover {
   .news_more:before {
     display: none;
   }
+
+  .news__wrapper i {
+    font-size: 35px;
+  }
+
+  .news__wrapper i:first-child {
+    left: -38px;
+  }
+  
+  .news__wrapper i:last-child {
+    right: -30px;
+  }
+  
 }
 
 /* SERVICE */
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 959px) {
   .service {
     padding-top: 0;
     /* margin-bottom: 10em;
@@ -2137,7 +2603,7 @@ a.read_more:hover {
     background-size: cover;
     background-attachment: local;
     padding-top: 50px;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     /* transform: translate(0%, 0px);
     animation: servicemove 2s ease; */
   }
@@ -2149,6 +2615,7 @@ a.read_more:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: visible;
   }
 
   .service__grid {
@@ -2195,11 +2662,28 @@ a.read_more:hover {
     padding-left: 0;
     padding-right: 0;
   }
+}
 
+@media only screen and (max-width: 1024px) {
+  .service_more::before {
+    content: "";
+    width: 589px;
+    height: 1px;
+
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .service_more::before {
+    content: "";
+    width: 589px;
+    height: 1px;
+
+  }
 }
 
 /* CONTACT */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 959px) {
 
   .contact {
     height: 100vh;
@@ -2353,7 +2837,7 @@ a.read_more:hover {
 }
 
 /* COMPANY INFO */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 959px) {
   .company-info__wrapper {
     display: flex;
     flex-direction: column;
@@ -2403,6 +2887,59 @@ a.read_more:hover {
   
 }
 
+@media only screen and (max-width: 959px) {
+
+  .company-info__wrapper__profile {
+    padding-left: 0;
+    /* text-align: center; */
+    padding: 15px;
+    text-align: center;
+  }
+
+  .contact__access {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .contact__access__sub {
+    text-align: center;
+  }
+
+}
+
+@media only screen and (min-width:960px) and (max-width: 1024px) {
+  .company-info__wrapper__profile {
+    padding-left: 0;
+    /* text-align: center; */
+    /* padding: 15px; */
+    text-align: center;
+  }
+
+}
+
+@media only screen and (min-width:425px) and (max-width: 767px) {
+  .company-info__wrapper__map iframe {
+    width: 400px;
+    height: 500px;
+
+  }
+}  
+
+
+@media only screen and (min-width:768px) and (max-width: 1024px) {
+  .company-info__wrapper__map iframe {
+    width: 500px;
+    height: 500px;
+
+  }
+}  
+
+@media only screen and (min-width:768px) and (max-width: 1024px) {
+  .company-info__wrapper__map iframe {
+    width: 500px;
+    height: 500px;
+  }
+}  
 
 /* FOOTER */
 /* If you don't want the footer to be responsive, remove these media queries */
