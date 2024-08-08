@@ -148,17 +148,44 @@ document.addEventListener("DOMContentLoaded", function() {
   const wrapper = document.querySelector(".news__wrapper");
 
   // Duplicate carousel items for infinite scrolling
-  const carouselItems = carousel.innerHTML;
-  carousel.innerHTML += carouselItems + carouselItems;
+  // const carouselItems = carousel.innerHTML;
+  // carousel.innerHTML += carouselItems + carouselItems;
 
-  const firstCard = carousel.querySelector(".card");
-  const firstCardWidth = firstCard.offsetWidth;
+  const cards = Array.from(carousel.querySelectorAll(".card"));
+  const firstCardWidth = cards[0].offsetWidth;
+
+  // const firstCard = carousel.querySelector(".card");
+  // const firstCardWidth = firstCard.offsetWidth;
 
   let isDragging = false,
       startX,
       startScrollLeft,
       timeoutId;
 
+
+  const updateArrowStates = () => {
+    const rightArrow = document.getElementById("right");
+    const leftArrow = document.getElementById("left");
+
+    
+    // Disable the right arrow if scrolled to the end
+    const scrollMax = carousel.scrollWidth - carousel.clientWidth;
+    if (carousel.scrollLeft >= scrollMax) {
+      rightArrow.classList.add("disabled");
+      // Stop auto-scrolling
+      clearTimeout(timeoutId);
+    } else {
+      rightArrow.classList.remove("disabled");
+    }
+
+    // Disable the left arrow if scrolled to the start
+    if (carousel.scrollLeft <= 0) {
+      leftArrow.classList.add("disabled");
+    } else {
+      leftArrow.classList.remove("disabled");
+    }
+  };
+  
   const dragStart = (e) => { 
       isDragging = true;
       carousel.classList.add("dragging");
@@ -173,11 +200,14 @@ document.addEventListener("DOMContentLoaded", function() {
       carousel.scrollLeft = newScrollLeft;
       
       // Check if the carousel reaches the start or end and adjust accordingly
-      if (newScrollLeft <= 0) {
-          carousel.scrollLeft += carousel.scrollWidth / 3;
-      } else if (newScrollLeft >= carousel.scrollWidth * 2 / 3) {
-          carousel.scrollLeft -= carousel.scrollWidth / 3;
-      }
+      // if (newScrollLeft <= 0) {
+      //     carousel.scrollLeft += carousel.scrollWidth / 3;
+      // } else if (newScrollLeft >= carousel.scrollWidth * 2 / 3) {
+      //     carousel.scrollLeft -= carousel.scrollWidth / 3;
+      // }
+
+       // Update arrow states
+       updateArrowStates();
   };
 
   const dragStop = () => {
@@ -189,9 +219,9 @@ document.addEventListener("DOMContentLoaded", function() {
       if (window.innerWidth < 800) return; 
       timeoutId = setTimeout(() => {
           carousel.scrollLeft += firstCardWidth;
-          if (carousel.scrollLeft >= carousel.scrollWidth * 2 / 3) {
-              carousel.scrollLeft = carousel.scrollWidth / 3;
-          }
+          // if (carousel.scrollLeft >= carousel.scrollWidth * 2 / 3) {
+          //     carousel.scrollLeft = carousel.scrollWidth / 3;
+          // }
           autoPlay();
       }, 4000);
   };
@@ -208,21 +238,30 @@ document.addEventListener("DOMContentLoaded", function() {
       let newScrollLeft = carousel.scrollLeft + (btn.id === "left" ? -firstCardWidth : firstCardWidth);
 
       // Check if the new position is out of the duplicated items bounds
-      if (newScrollLeft < carousel.scrollWidth / 3) {
-          carousel.scrollLeft += carousel.scrollWidth / 3;
-          newScrollLeft += carousel.scrollWidth / 3;
-      } else if (newScrollLeft >= carousel.scrollWidth * 2 / 3) {
-          carousel.scrollLeft -= carousel.scrollWidth / 3;
-          newScrollLeft -= carousel.scrollWidth / 3;
-      }
+      // if (newScrollLeft < carousel.scrollWidth / 3) {
+      //     carousel.scrollLeft += carousel.scrollWidth / 3;
+      //     newScrollLeft += carousel.scrollWidth / 3;
+      // } else if (newScrollLeft >= carousel.scrollWidth * 2 / 3) {
+      //     carousel.scrollLeft -= carousel.scrollWidth / 3;
+      //     newScrollLeft -= carousel.scrollWidth / 3;
+      // }
 
+      // Ensure new scroll position is within bounds
+      newScrollLeft = Math.max(0, Math.min(newScrollLeft, carousel.scrollWidth - carousel.clientWidth));
+      
       // Scroll to the new position
       carousel.scrollLeft = newScrollLeft;
+
+      // Update arrow states
+      updateArrowStates();
   });
 });
 
 // Set the initial scroll position to the middle section
-carousel.scrollLeft = carousel.scrollWidth / 3;
+carousel.scrollLeft = 0;
+
+ // Update arrow states initially
+ updateArrowStates();
 
   // autoPlay(); // Start autoplay on load
 });

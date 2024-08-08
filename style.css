@@ -956,6 +956,11 @@ button img {
   /* border: 4px solid #fff; */
 }
 
+.news__wrapper .fa-angle-left.disabled,
+.news__wrapper .fa-angle-right.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
 
 .reveal {
   transition: all 1s ease-in;
